@@ -6,3 +6,7 @@ from .models import BlogPost
 def index(request):
     blogPosts = BlogPost.objects.all()      ## Access all objects from BlogPost class
     return render(request, 'index.html', {'blogPosts': blogPosts})
+
+def blogPost(request, pk):
+    blogPosts = BlogPost.objects.get(id = pk)
+    return render(request, 'blogPosts.html', {'blogPosts': blogPosts})
